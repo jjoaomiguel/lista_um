@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informar se um número é positivo, negativo ou zero.</title>
+    <title>Verificar se dois números formam um número amigo (soma dos divisores de um é igual ao outro).</title>
 </head>
 
 <body>
