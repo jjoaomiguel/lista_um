@@ -1,36 +1,28 @@
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar se uma palavra é um palíndromo (ex: “arara”).</title>
 </head>
-
 <body>
-<form method="POST" action="">
-    <label for="palavra">Palavra: </label>
-    <input type="string" id="string" name="string" required>
-    <button type="submit" name="palindromo">Palindromo</button>
-</form>
+    <form action="" method="POST">
+        <label for="texto_palindromo">Palavra: </label>
+        <input type="text" name="texto_palindromo" id="texto_palindromo" required>
+        <button type="submit" name="verificar_palindromo">Enviar</button>
+    </form>
 
-<?php
+    <?php
+    
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['verificar_palindromo'])){
+                $palavra = $_POST['texto_palindromo'];
+                $palavra_invertida = strrev($palavra);
 
-        function palindromo($string){
-            $string = strtolower(trim($string));
-            $reversedString = strrev($string);
-            return $string === $reversedString;
-        }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fibonacci'])) {
-        $string = (string)$_POST['string'];
-
-        if (palindromo($string)) {
-            echo "$string é um palíndromo.\n";
-            } else {
-            echo "$string não é um palíndromo.\n";
+                echo "A palavra $palavra ".(($palavra_invertida == $palavra)? ' é um palíndromo':'não é um palíndromo');
+                
             }
         }
-?>
 
+    ?>
 </body>
 </html>
